@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_liste_etudiants">
+
+    <fragment
+        android:id="@+id/nav_liste_etudiants"
+        android:name="com.example.tp5.ui.liste.ListeEtudiantsFragment"
+        android:label="@string/menu_liste"
+        tools:layout="@layout/fragment_liste_etudiants">
+
+        <action
+            android:id="@+id/action_liste_to_details"
+            app:destination="@id/nav_details_etudiant" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_ajout_etudiant"
+        android:name="com.example.tp5.ui.ajout.AjoutEtudiantFragment"
+        android:label="@string/menu_ajout"
+        tools:layout="@layout/fragment_ajout_etudiant">
+
+        <action
+            android:id="@+id/action_ajout_to_liste"
+            app:destination="@id/nav_liste_etudiants"
+            app:popUpTo="@id/nav_ajout_etudiant"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_details_etudiant"
+        android:name="com.example.tp5.ui.detail.DetailsEtudiantFragment"
+        android:label="Student Details"
+        tools:layout="@layout/fragment_detail_etudiant" />
+
+</navigation>
