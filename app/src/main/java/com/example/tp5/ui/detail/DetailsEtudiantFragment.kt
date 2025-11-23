@@ -41,7 +41,7 @@ class DetailsEtudiantFragment : Fragment() {
                     tvDetailsEmail.text = it.mail
                     tvDetailsClasse.text = it.classe
 
-                    // Get initial from email
+
                     val initial = it.mail.firstOrNull()?.uppercaseChar()?.toString() ?: "?"
                     tvInitial.text = initial
                 }

@@ -22,11 +22,11 @@ class EtudiantAdapter(
                 tvEmail.text = etudiant.mail
                 tvClasse.text = etudiant.classe
 
-                // Get initial from email
+
                 val initial = etudiant.mail.firstOrNull()?.uppercaseChar()?.toString() ?: "?"
                 tvInitial.text = initial
 
-                // Click listeners
+
                 root.setOnClickListener { onItemClick(etudiant) }
                 root.setOnLongClickListener {
                     onItemLongClick(etudiant)

@@ -48,7 +48,7 @@ class AjoutEtudiantFragment : Fragment() {
         val email = binding.etEmail.text.toString().trim()
         val classe = binding.etClasse.text.toString().trim()
 
-        // Validation
+
         when {
             email.isEmpty() || classe.isEmpty() -> {
                 Snackbar.make(
@@ -61,24 +61,22 @@ class AjoutEtudiantFragment : Fragment() {
                 binding.emailInputLayout.error = getString(R.string.error_invalid_email)
             }
             else -> {
-                // Clear error
+
                 binding.emailInputLayout.error = null
 
-                // Create and add student
+
                 val etudiant = Etudiant(mail = email, classe = classe)
                 etudiantViewModel.addEtudiant(etudiant)
 
-                // Show success message
+
                 Snackbar.make(
                     binding.root,
                     getString(R.string.success_add),
                     Snackbar.LENGTH_SHORT
                 ).show()
 
-                // Clear fields
                 clearFields()
 
-                // Navigate to list
                 findNavController().navigate(R.id.action_ajout_to_liste)
             }
         }

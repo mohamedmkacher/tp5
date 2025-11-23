@@ -24,15 +24,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Setup toolbar
+
         setSupportActionBar(binding.toolbar)
 
-        // Setup navigation
+
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
         navController = navHostFragment.navController
 
-        // Setup app bar configuration
+
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_liste_etudiants,
@@ -44,13 +44,13 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
 
-        // Handle back button - NEW WAY
+
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                 } else {
-                    // Let the system handle back navigation
+
                     isEnabled = false
                     onBackPressedDispatcher.onBackPressed()
                     isEnabled = true

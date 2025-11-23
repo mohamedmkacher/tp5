@@ -73,14 +73,14 @@ class ListeEtudiantsFragment : Fragment() {
     }
 
     private fun observeData() {
-        // Observe all students by default
+
         etudiantViewModel.allEtudiants.observe(viewLifecycleOwner) { etudiants ->
             if (!isSearching) {
                 updateUI(etudiants)
             }
         }
 
-        // Observe search results
+
         etudiantViewModel.searchResults.observe(viewLifecycleOwner) { results ->
             if (isSearching && results.isNotEmpty()) {
                 updateUI(results)
